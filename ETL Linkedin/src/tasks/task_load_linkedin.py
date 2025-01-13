@@ -7,20 +7,20 @@ def task_load_linkedin(ofertas):
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='12345678',
+            password='123456789',
             database='datag3'
         )
         cursor = conn.cursor()
 
         query_tabla = """CREATE TABLE IF NOT EXISTS ofertas (
             id INT AUTO_INCREMENT PRIMARY KEY,
-            titulo VARCHAR(255),
+            nombre VARCHAR(255),
             ubicacion VARCHAR(255),
             url VARCHAR(255),
         )"""
         cursor.execute(query_tabla)
 
-        query_insertar = "INSERT INTO ofertas (titulo, ubicacion, url) VALUES (%s, %s, %s)"
+        query_insertar = "INSERT INTO ofertas (nombre, ubicacion, url) VALUES (%s, %s, %s)"
 
         for oferta in ofertas:
             cursor.execute(query_insertar, (oferta['nombre'], oferta['ubicacion'], oferta['url']))
