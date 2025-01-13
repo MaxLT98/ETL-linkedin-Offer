@@ -7,7 +7,7 @@ def task_load_linkedin(ofertas):
         conn = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='123456789',
+            password='root',
             database='datag3'
         )
         cursor = conn.cursor()
@@ -16,7 +16,7 @@ def task_load_linkedin(ofertas):
             id INT AUTO_INCREMENT PRIMARY KEY,
             nombre VARCHAR(255),
             ubicacion VARCHAR(255),
-            url VARCHAR(255),
+            url VARCHAR(255)
         )"""
         cursor.execute(query_tabla)
 
